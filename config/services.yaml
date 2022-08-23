@@ -1,3 +1,8 @@
 parameters:
   product_inventory.manager.email: 'bajomodavid@gmail.com'
   product_inventory.csv_location: ''
+
+services:
+  BajomoDavid\ProductInventoryBundle\:
+    resource: '../src/Command/*'
+    tags: [ 'console.command' ]
