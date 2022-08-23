@@ -1,0 +1,26 @@
+{
+  "name": "bajomodavid/product-inventory-bundle",
+  "description": "Symfony bundle to handle product inventory and manage stock",
+  "type": "symfony-bundle",
+  "require": {
+    "php": ">=7.4",
+    "symfony/framework-bundle": "^4.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "BajomoDavid\\ProductInventoryBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BajomoDavid\\ProductInventoryBundle\\Tests\\": "tests/"
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "David Bajomo",
+      "email": "bajomodavid@gmail.com"
+    }
+  ]
+}
