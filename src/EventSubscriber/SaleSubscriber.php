@@ -2,11 +2,20 @@
 
 namespace BajomoDavid\ProductInventoryBundle\EventSubscriber;
 
+use Bajomodavid\ProductInventoryBundle\Event\ProductSaleEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
 
 class SaleSubscriber implements EventSubscriberInterface
 {
+    public static function getSubscribedEvents()
+    {
+        return [
+            ProductSaleEvent::NAME => 'onStoreSale',
+        ];
+    }
 
+    public function onStoreSale(ProductSaleEvent $event)
+    {
+        dd($event);
+    }
 }

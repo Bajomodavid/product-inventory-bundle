@@ -2,6 +2,7 @@
 
 namespace Bajomodavid\ProductInventoryBundle\Event;
 
+use Bajomodavid\ProductInventoryBundle\Entity\StockData;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class ProductSaleEvent extends Event
@@ -10,12 +11,12 @@ class ProductSaleEvent extends Event
 
     protected $sale;
 
-    public function __construct(Sale $sale)
+    public function __construct(StockData $sale)
     {
         $this->sale = $sale;
     }
 
-    public function getOrder(): Sale
+    public function getSale(): StockData
     {
         return $this->sale;
     }
