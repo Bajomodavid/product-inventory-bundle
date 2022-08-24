@@ -3,6 +3,6 @@ parameters:
   product_inventory.csv_location: ''
 
 services:
-  BajomoDavid\ProductInventoryBundle\:
+  BajomoDavid\ProductInventoryBundle\Command\:
     resource: '../src/Command/*'
     tags: [ 'console.command' ]
