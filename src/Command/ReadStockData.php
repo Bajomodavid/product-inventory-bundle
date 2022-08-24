@@ -24,6 +24,7 @@ class ReadStockData extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         // If you want to write some output
+        $output->writeln('Product inventory CSV importer');
         $output->writeln('Pass the stock data csv ' . $input->getArgument('path'));
 
         // Return below values according to the occurred situation
