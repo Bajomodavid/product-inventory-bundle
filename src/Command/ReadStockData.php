@@ -2,6 +2,7 @@
 
 namespace BajomoDavid\ProductInventoryBundle\Command;
 
+use Bajomodavid\ProductInventoryBundle\Controller\ReadCsvFile;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -28,17 +29,8 @@ class ReadStockData extends Command
         $output->writeln('Pass the stock data csv ' . $input->getArgument('path'));
 
         // Return below values according to the occurred situation
-
-        if (SUCCESSFUL_EXECUTION_CONDITION) {
-
-            // if everything is executed successfully with no issues then return SUCCESS as below
-            return 0;
-
-        } elseif (EXECUTION_FAILURE_CONDITION) {
-
-            // if execution fails return FAILURE as below
-            return 1;
-        }
+        $processRecords = new ReadCsvFile();
+        $processRecords->readFile();
         return 0;
     }
 }
