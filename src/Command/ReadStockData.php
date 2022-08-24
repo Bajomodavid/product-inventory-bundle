@@ -38,5 +38,6 @@ class ReadStockData extends Command
             // if execution fails return FAILURE as below
             return 1;
         }
+        return 0;
     }
 }
