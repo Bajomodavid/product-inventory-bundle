@@ -13,9 +13,7 @@ class ReadStockData extends Command
     // In this function set the name, description and help hint for the command
     protected function configure(): void
     {
-        // Use in-build functions to set name, description and help
-
-        $this->setName('import-stock')
+        $this->setName('inventory:import-stock')
             ->setDescription('Imports stock data from CSV')
             ->setHelp('Run this command to import stock data.')
             ->addArgument('path', InputArgument::REQUIRED, 'Pass the path to the csv relative to the web root.');
@@ -24,11 +22,9 @@ class ReadStockData extends Command
     // write the code you want to execute when command runs
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        // If you want to write some output
         $output->writeln('Product inventory CSV importer');
         $output->writeln('Pass the stock data csv ' . $input->getArgument('path'));
 
-        // Return below values according to the occurred situation
         $processRecords = new ReadCsvFile();
         $processRecords->readFile();
         return 0;
