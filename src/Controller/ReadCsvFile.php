@@ -2,22 +2,23 @@
 
 namespace BajomoDavid\ProductInventoryBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\UrlHelper;
 
-class ReadCsvFile extends Controller
+class ReadCsvFile extends AbstractController
 {
     private $path;
     private $records;
     private $projectRoot;
+    private $urlHelper;
 
-    public function __construct()
+    public function __construct(UrlHelper $urlHelper)
     {
-        $this->projectRoot = $this->getParameter('kernel.project_dir');
+        $this->urlHelper = $urlHelper;
     }
 
     public function readFile()
     {
-        dd($this->projectRoot);
+        dd($this->urlHelper);
     }
 
     public function formatRecords()
