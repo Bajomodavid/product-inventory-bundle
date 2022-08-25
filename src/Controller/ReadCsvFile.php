@@ -4,7 +4,7 @@ namespace BajomoDavid\ProductInventoryBundle\Controller;
 
 use Symfony\Component\HttpFoundation\UrlHelper;
 
-class ReadCsvFile extends AbstractController
+class ReadCsvFile
 {
     private $path;
     private $records;
