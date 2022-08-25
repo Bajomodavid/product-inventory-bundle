@@ -1,6 +1,6 @@
 <?php
 
-namespace Bajomodavid\ProductInventoryBundle\Controller;
+namespace BajomoDavid\ProductInventoryBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 

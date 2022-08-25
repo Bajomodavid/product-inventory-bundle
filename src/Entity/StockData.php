@@ -1,6 +1,6 @@
 <?php
 
-namespace Bajomodavid\ProductInventoryBundle\Entity;
+namespace BajomoDavid\ProductInventoryBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

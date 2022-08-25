@@ -2,7 +2,7 @@
 
 namespace BajomoDavid\ProductInventoryBundle\Command;
 
-use Bajomodavid\ProductInventoryBundle\Controller\ReadCsvFile;
+use BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

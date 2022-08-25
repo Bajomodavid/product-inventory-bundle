@@ -2,7 +2,7 @@
 
 namespace Bajomodavid\ProductInventoryBundle\Event;
 
-use Bajomodavid\ProductInventoryBundle\Entity\StockData;
+use BajomoDavid\ProductInventoryBundle\Entity\StockData;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class ProductSaleEvent extends Event
