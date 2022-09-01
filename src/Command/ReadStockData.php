@@ -25,7 +25,7 @@ class ReadStockData extends Command
         $output->writeln('Product inventory CSV importer');
         $output->writeln('Pass the stock data csv ' . $input->getArgument('path'));
 
-        $processRecords = new ReadCsvFile();
+        $processRecords = new ReadCsvFile;
         $processRecords->readFile();
         return 0;
     }
