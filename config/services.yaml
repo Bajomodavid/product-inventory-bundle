@@ -5,7 +5,8 @@ parameters:
 services:
   BajomoDavid\ProductInventoryBundle\Command\:
     resource: '../src/Command/*'
-    tags: [ 'console.command' ]
-  BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile:
     arguments:
       $projectDir: "%kernel.project_dir%"
+    tags: [ 'console.command' ]
+  BajomoDavid\ProductInventoryBundle\Controller\:
+    resource: '../src/Controller/*'
