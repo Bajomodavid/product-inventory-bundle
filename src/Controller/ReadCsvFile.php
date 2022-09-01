@@ -13,6 +13,8 @@ class ReadCsvFile
     public function __construct(string $projectDir)
     {
         $this->projectDir = $projectDir;
+
+        parent::__construct();
     }
 
     public function readFile()
