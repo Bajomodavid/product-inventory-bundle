@@ -8,16 +8,16 @@ class ReadCsvFile
 {
     private $path;
     private $records;
-    private $projectRoot;
+    private $projectDir;
 
-    public function __construct(string $projectRoot)
+    public function __construct(string $projectDir)
     {
-        $this->projectRoot = $projectRoot;
+        $this->projectDir = $projectDir;
     }
 
     public function readFile()
     {
-        dd($this->projectRoot);
+        dd($this->projectDir);
     }
 
     public function formatRecords()
