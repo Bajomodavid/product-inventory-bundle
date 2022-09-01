@@ -24,9 +24,9 @@ class ReadCsvFile
             throw new \Exception("Invalid file path supplied, supply full path relative to project directory");
         }
 
-        $data = fgetcsv($CSVfp, 1000, ",");
+        $firstRow = fgetcsv($CSVfp, 1000, ",");
 
-        if (!$this->validateStructure($data)) {
+        if (!$this->validateStructure($firstRow)) {
             throw new \Exception("Invalid CSV format");
         }
 
@@ -35,6 +35,7 @@ class ReadCsvFile
             $this->records[] = $data;
         }
         dd($this->records);
+        fclose($CSVfp);
         return $this->records;
     }
 
