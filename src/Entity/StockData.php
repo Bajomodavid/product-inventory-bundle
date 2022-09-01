@@ -1,10 +1,12 @@
 <?php
 
 namespace BajomoDavid\ProductInventoryBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="BajomoDavid\ProductInventoryBundle\Repository\StockDataRepository")
+ * @ORM\Table(name="bajomodavid_product_inventory_stock_data")
  */
 class StockData
 {

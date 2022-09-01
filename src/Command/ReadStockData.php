@@ -2,7 +2,9 @@
 
 namespace BajomoDavid\ProductInventoryBundle\Command;
 
+use BajomoDavid\ProductInventoryBundle\Controller\ImportData;
 use BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile;
+use mysql_xdevapi\Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -30,10 +32,18 @@ class ReadStockData extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('Product inventory CSV importer');
-        $output->writeln('Pass the stock data csv ' . $input->getArgument('path'));
+        $output->writeln('Pass the stock data csv full path');
 
-        $processRecords = new ReadCsvFile($this->projectDir);
-        $processRecords->readFile();
+        $processRecords = new ReadCsvFile($this->projectDir, $input->getArgument('path'));
+        $records = [];
+        try {
+            $records = $processRecords->readFile();
+        } catch (\Exception $exception) {
+            $output->writeln($exception);
+        }
+
+        $storeInDB = new ImportData($records);
+        $storeInDB->storeRecords();
         return 0;
     }
 }
