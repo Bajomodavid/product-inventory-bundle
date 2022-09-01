@@ -18,13 +18,14 @@ class ReadCsvFile
 
     public function readFile()
     {
-        $file = $this->projectDir . $this->path;
+        $file = $this->projectDir ."/". $this->path;
         $CSVfp = fopen($file, "r");
         if(!$CSVfp) {
             throw new \Exception("Invalid file path supplied, supply full path relative to project directory");
         }
 
         $data = fgetcsv($CSVfp, 1000, ",");
+        dd($data);
 
         if (!$this->validateStructure($data[0])) {
             throw new \Exception("Invalid CSV format");
