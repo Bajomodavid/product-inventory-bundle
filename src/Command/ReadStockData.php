@@ -10,6 +10,12 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class ReadStockData extends Command
 {
+    private string $projectDir;
+
+    public function __construct(string $projectDir)
+    {
+        $this->projectDir = $projectDir;
+    }
     // In this function set the name, description and help hint for the command
     protected function configure(): void
     {
@@ -25,7 +31,7 @@ class ReadStockData extends Command
         $output->writeln('Product inventory CSV importer');
         $output->writeln('Pass the stock data csv ' . $input->getArgument('path'));
 
-        $processRecords = new ReadCsvFile();
+        $processRecords = new ReadCsvFile($this->projectDir);
         $processRecords->readFile();
         return 0;
     }
