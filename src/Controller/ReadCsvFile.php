@@ -2,7 +2,7 @@
 
 namespace BajomoDavid\ProductInventoryBundle\Controller;
 
-use Symfony\Component\HttpFoundation\UrlHelper;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ReadCsvFile
 {
@@ -10,14 +10,11 @@ class ReadCsvFile
     private $records;
     private $projectDir;
 
-    public function __construct(string $projectDir)
-    {
-        $this->projectDir = $projectDir;
-    }
-
     public function readFile()
     {
-        dd($this->projectDir);
+        $this->projectDir = $this->getParameter('kernel.project_dir');
+        $adminEmail = $this->getParameter('product_inventory.manager_email');
+        dd($this->projectDir, $adminEmail);
     }
 
     public function formatRecords()
