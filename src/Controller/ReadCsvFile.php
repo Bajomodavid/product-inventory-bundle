@@ -9,16 +9,15 @@ class ReadCsvFile
     private $path;
     private $records;
     private $projectRoot;
-    private $urlHelper;
 
-    public function __construct(UrlHelper $urlHelper)
+    public function __construct(string $projectRoot)
     {
-        $this->urlHelper = $urlHelper;
+        $this->projectRoot = $projectRoot;
     }
 
     public function readFile()
     {
-        dd($this->urlHelper);
+        dd($this->projectRoot);
     }
 
     public function formatRecords()
