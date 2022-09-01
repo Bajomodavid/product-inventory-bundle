@@ -13,7 +13,7 @@ class ReadCsvFile extends AbstractController
 
     public function __construct()
     {
-        $this->projectDir = $this->getParameter('kernel.project_dir');
+//        $this->projectDir = $this->getParameter('kernel.project_dir');
         $this->adminEmail = $this->getParameter('product_inventory.manager_email');
         dd($this->projectDir, $this->adminEmail);
     }
