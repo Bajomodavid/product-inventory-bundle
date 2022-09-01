@@ -10,11 +10,9 @@ class ReadCsvFile
     private $records;
     private $projectDir;
 
-    public function __construct(string $projectDir)
+    public function __construct(string $projectDir = '')
     {
         $this->projectDir = $projectDir;
-
-        parent::__construct();
     }
 
     public function readFile()
