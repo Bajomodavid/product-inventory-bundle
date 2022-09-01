@@ -25,9 +25,8 @@ class ReadCsvFile
         }
 
         $data = fgetcsv($CSVfp, 1000, ",");
-        dd($data);
 
-        if (!$this->validateStructure($data[0])) {
+        if (!$this->validateStructure($data)) {
             throw new \Exception("Invalid CSV format");
         }
 
@@ -35,9 +34,8 @@ class ReadCsvFile
         {
             $this->records[] = $data;
         }
-
+        dd($this->records);
         return $this->records;
-
     }
 
     public function validateStructure(array $row): bool
