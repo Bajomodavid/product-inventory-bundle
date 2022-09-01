@@ -4,7 +4,6 @@ namespace BajomoDavid\ProductInventoryBundle\Command;
 
 use BajomoDavid\ProductInventoryBundle\Controller\ImportData;
 use BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile;
-use mysql_xdevapi\Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

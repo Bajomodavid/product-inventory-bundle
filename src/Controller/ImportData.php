@@ -3,6 +3,7 @@
 namespace BajomoDavid\ProductInventoryBundle\Controller;
 
 use BajomoDavid\ProductInventoryBundle\Entity\StockData;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ImportData extends AbstractController
 {
