@@ -7,6 +7,6 @@ services:
     resource: '../src/Command/*'
     tags: [ 'console.command' ]
   BajomoDavid\ProductInventoryBundle\Controller\:
-    resource: '../src/Controller/ReadCsvFile'
+    resource: '../src/Controller/ReadCsvFile.php'
     arguments:
       $projectDir: "%kernel.project_dir%"
