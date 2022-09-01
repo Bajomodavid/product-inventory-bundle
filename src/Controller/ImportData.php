@@ -2,7 +2,9 @@
 
 namespace BajomoDavid\ProductInventoryBundle\Controller;
 
-class ImportData
+use BajomoDavid\ProductInventoryBundle\Entity\StockData;
+
+class ImportData extends AbstractController
 {
     private array $records;
 
@@ -13,14 +15,24 @@ class ImportData
 
     public function storeRecords()
     {
-//        Store records in DB
+        foreach ($this->records as $record) {
+            $this->storeOrUpdateData($record[0], $record[1], $record[2]);
+        }
     }
 
-    public function storeData()
+    public function storeOrUpdateData($sku, $branch, $stock)
     {
-//        Create or update record
-    }
+        $entityManager = $this->getDoctrine()->getManager();
 
-    public function insertRecords()
-    {}
+        $stockData = new StockData();
+        $stockData->setSku($sku);
+        $stockData->setBranch($branch);
+        $stockData->setStock($stock);
+
+        // tell Doctrine you want to (eventually) save the Product (no queries yet)
+        $entityManager->persist($stockData);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush();
+    }
 }
