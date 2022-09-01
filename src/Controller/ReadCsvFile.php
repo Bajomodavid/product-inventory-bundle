@@ -2,20 +2,17 @@
 
 namespace BajomoDavid\ProductInventoryBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\UrlHelper;
 
-class ReadCsvFile extends AbstractController
+class ReadCsvFile
 {
     private $path;
     private $records;
     private $projectDir;
-    private $adminEmail;
 
-    public function __construct()
+    public function __construct(string $projectDir)
     {
-//        $this->projectDir = $this->getParameter('kernel.project_dir');
-        $this->adminEmail = $this->getParameter('product_inventory.manager_email');
-        dd($this->projectDir, $this->adminEmail);
+        $this->projectDir = $projectDir;
     }
 
     public function readFile()
