@@ -4,7 +4,7 @@ namespace BajomoDavid\ProductInventoryBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ReadCsvFile
+class ReadCsvFile extends AbstractController
 {
     private $path;
     private $records;
