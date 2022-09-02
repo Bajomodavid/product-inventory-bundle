@@ -9,7 +9,7 @@ services:
       $projectDir: "%kernel.project_dir%"
     tags: [ 'console.command' ]
 
-  bajomo_david_product_inventory_bundle.store_stock:
+  app.store_stock:
     class: BajomoDavid\ProductInventoryBundle\Controller\ImportData
     arguments:
-      $entityManager: '@doctrine.orm.default_entity_manager'
+      $entityManager: '@doctrine.orm.entity_manager'

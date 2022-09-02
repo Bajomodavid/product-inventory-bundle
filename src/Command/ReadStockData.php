@@ -48,7 +48,7 @@ class ReadStockData extends Command
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
         $loader->load('services.yaml');
 
-        $storeInDB = $container->get('bajomo_david_product_inventory_bundle.store_stock');
+        $storeInDB = $container->get('app.store_stock');
         $storeInDB->storeRecords($records);
         $output->writeln('Stock data imported successfully');
         return 0;
