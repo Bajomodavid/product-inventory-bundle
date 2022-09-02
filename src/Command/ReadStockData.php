@@ -48,7 +48,7 @@ class ReadStockData extends Command
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
         $loader->load('services.yaml');
 
-        $storeInDB = $container->get('app.store_stock');
+        $storeInDB = $container->get('app.inventory_import');
         $storeInDB->storeRecords($records);
         $output->writeln('Stock data imported successfully');
         return 0;
