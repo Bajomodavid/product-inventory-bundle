@@ -4,14 +4,19 @@ parameters:
 #  project_dir: "%env(resolve:PRODUCT_INVENTORY_FILE_ROOT)%"
 
 services:
+  _defaults:
+    bind:
+      # pass this value to any $projectDir argument for any service
+      # that's created in this file (including controller arguments)
+      $projectDir: '%kernel.project_dir%'
   app.command.inventory_read:
     class: BajomoDavid\ProductInventoryBundle\Command\ReadStockData
     tags: [ 'console.command' ]
 
   app.inventory_read:
     class: BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile
-    bind:
-      $projectDir: "%kernel.project_dir%"
+    arguments:
+#      $projectDir: "%kernel.project_dir%"
 
   app.inventory_import:
     class: BajomoDavid\ProductInventoryBundle\Controller\ImportData
