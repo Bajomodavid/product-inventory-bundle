@@ -2,8 +2,9 @@
 
 namespace BajomoDavid\ProductInventoryBundle\Command;
 
-use BajomoDavid\ProductInventoryBundle\Controller\ImportData;
 use BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
