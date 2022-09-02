@@ -10,7 +10,7 @@ services:
   app.inventory_read:
     class: BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile
     arguments:
-      $projectDir: "%kernel.project_dir%"
+      $projectDir: "kernel.project_dir"
 
   app.inventory_import:
     class: BajomoDavid\ProductInventoryBundle\Controller\ImportData
