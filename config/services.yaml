@@ -1,6 +1,7 @@
 parameters:
   product_inventory.manager.email: 'bajomodavid@gmail.com'
   product_inventory.csv_location: ''
+  kernel.project_dir: "%kernel.project_dir%"
 
 services:
   app.command.inventory_read:
