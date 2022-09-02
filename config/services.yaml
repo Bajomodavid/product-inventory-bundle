@@ -3,6 +3,7 @@ parameters:
   product_inventory.csv_location: ''
 
 services:
+  public: true
   app.command.inventory_read:
     class: BajomoDavid\ProductInventoryBundle\Command\ReadStockData
     arguments:
