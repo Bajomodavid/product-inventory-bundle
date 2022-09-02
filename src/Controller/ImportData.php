@@ -4,7 +4,6 @@ namespace BajomoDavid\ProductInventoryBundle\Controller;
 
 use BajomoDavid\ProductInventoryBundle\Entity\StockData;
 use Doctrine\ORM\EntityManager;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ImportData extends AbstractController
@@ -12,7 +11,7 @@ class ImportData extends AbstractController
     private array $records;
     private $entityManager;
 
-    public function __construct(array $records, $entityManager)
+    public function __construct(array $records, EntityManager $entityManager)
     {
         $this->records = $records;
         $this->entityManager = $entityManager;
