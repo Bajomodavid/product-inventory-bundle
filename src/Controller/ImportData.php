@@ -12,8 +12,6 @@ class ImportData
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
-
-        parent::__construct();
     }
 
     public function storeRecords(array $records)
