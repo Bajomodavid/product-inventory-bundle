@@ -8,6 +8,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class ReadStockData extends Command
 {
@@ -41,7 +42,12 @@ class ReadStockData extends Command
             $output->writeln($exception);
         }
 
-        $storeInDB = new ImportData();
+
+        $container = new ContainerBuilder();
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__));
+        $loader->load('services.yml');
+
+        $storeInDB = $container->get('bajomo_david_product_inventory_bundle.store_stock');
         $storeInDB->storeRecords($records);
         $output->writeln('Stock data imported successfully');
         return 0;

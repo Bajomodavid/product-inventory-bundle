@@ -9,12 +9,14 @@ class ImportData
 {
     private $entityManager;
 
-    public function __construct(array $records, EntityManager $entityManager)
+    public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
+
+        parent::__construct();
     }
 
-    public function storeRecords($records)
+    public function storeRecords(array $records)
     {
         foreach ($records as $record) {
             $this->storeOrUpdateData($record[0], $record[1], $record[2]);
@@ -23,8 +25,7 @@ class ImportData
 
     public function storeOrUpdateData($sku, $branch, $stock)
     {
-        $doctrine = $this->entityManager;
-        $entityManager = $doctrine->getManager();
+        $entityManager = $this->entityManager;
 
         $stockData = new StockData();
         $stockData->setSku($sku);
