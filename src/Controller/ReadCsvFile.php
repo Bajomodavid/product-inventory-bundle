@@ -34,6 +34,7 @@ class ReadCsvFile
         }
 
         fclose($CSVfp);
+        dd($this->records);
         return $this->records;
     }
 
