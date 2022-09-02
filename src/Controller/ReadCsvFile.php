@@ -6,19 +6,17 @@ use Symfony\Component\HttpFoundation\UrlHelper;
 
 class ReadCsvFile
 {
-    private $path;
     private $records;
     private $projectDir;
 
-    public function __construct(string $projectDir, string $path = '')
+    public function __construct(string $projectDir)
     {
         $this->projectDir = $projectDir;
-        $this->path = $path;
     }
 
-    public function readFile()
+    public function readFile($path)
     {
-        $file = $this->projectDir ."/". $this->path;
+        $file = $this->projectDir ."/". $path;
         $CSVfp = fopen($file, "r");
         if(!$CSVfp) {
             throw new \Exception("Invalid file path supplied, supply full path relative to project directory");

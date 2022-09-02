@@ -3,8 +3,8 @@ parameters:
   product_inventory.csv_location: ''
 
 services:
-  BajomoDavid\ProductInventoryBundle\Command\:
-    resource: '../src/Command/*'
+  app.command.inventory_read:
+    class: BajomoDavid\ProductInventoryBundle\Command\ReadStockData
     arguments:
       $projectDir: "%kernel.project_dir%"
     tags: [ 'console.command' ]
@@ -12,4 +12,4 @@ services:
   app.inventory_import:
     class: BajomoDavid\ProductInventoryBundle\Controller\ImportData
     arguments:
-      $entityManager: '@doctrine.orm.entity_manager'
+      $entityManager: "@doctrine.orm.entity_manager"

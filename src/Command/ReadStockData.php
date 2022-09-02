@@ -35,21 +35,20 @@ class ReadStockData extends Command
         $output->writeln('Product inventory CSV importer');
         $output->writeln('Pass the stock data csv full path');
 
-        $processRecords = new ReadCsvFile($this->projectDir, $input->getArgument('path'));
-        $records = [];
-        try {
-            $records = $processRecords->readFile();
-        } catch (\Exception $exception) {
-            $output->writeln($exception);
-        }
-
-
         $container = new ContainerBuilder();
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
         $loader->load('services.yaml');
 
-        $storeInDB = $container->get('app.inventory_import');
-        $storeInDB->storeRecords($records);
+        $processRecords = $container->get('app.command.inventory_read');
+        $records = [];
+        try {
+            $records = $processRecords->readFile($input->getArgument('path'));
+        } catch (\Exception $exception) {
+            $output->writeln($exception);
+        }
+
+//        $storeInDB = $container->get('app.inventory_import');
+//        $storeInDB->storeRecords($records);
         $output->writeln('Stock data imported successfully');
         return 0;
     }

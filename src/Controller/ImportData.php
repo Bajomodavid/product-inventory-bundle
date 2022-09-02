@@ -3,13 +3,13 @@
 namespace BajomoDavid\ProductInventoryBundle\Controller;
 
 use BajomoDavid\ProductInventoryBundle\Entity\StockData;
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\EntityManager;
 
 class ImportData
 {
     private $entityManager;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
     }
