@@ -1,16 +1,16 @@
 parameters:
   product_inventory.manager.email: 'bajomodavid@gmail.com'
   product_inventory.csv_location: ''
+  project_dir: "%kernel.project_dir%"
 
 services:
   app.command.inventory_read:
-    class: BajomoDavid\ProductInventoryBundle\Command\ReadStockData
+      class: BajomoDavid\ProductInventoryBundle\Command\ReadStockData
     tags: [ 'console.command' ]
 
   app.inventory_read:
     class: BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile
-    arguments:
-      $projectDir: "%kernel.project_dir%"
+    arguments: ["%project_dir%"]
 
   app.inventory_import:
     class: BajomoDavid\ProductInventoryBundle\Controller\ImportData

@@ -31,7 +31,10 @@ class ReadStockData extends Command
         $container = new ContainerBuilder();
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
         $loader->load('services.yaml');
+        $container->hasParameter('project_dir');
 
+        // gets value of a parameter
+        $container->getParameter('project_dir');
         $processRecords = $container->get('app.inventory_read');
         $records = [];
         try {
