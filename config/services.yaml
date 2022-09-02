@@ -5,25 +5,14 @@ parameters:
 services:
   app.command.inventory_read:
     class: BajomoDavid\ProductInventoryBundle\Command\ReadStockData
-    arguments:
     tags: [ 'console.command' ]
 
-  BajomoDavid\ProductInventoryBundle\Controller\:
-    resource: '../src/Controller/ReadCsvFile.php'
+  app.inventory_read:
+    class: BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile
     arguments:
       $projectDir: "%kernel.project_dir%"
 
-#  BajomoDavid\ProductInventoryBundle\Controller\ImportData:
-#    resource: '../src/Controller/ImportData.php'
-#    arguments:
-#      $entityManager: "@doctrine.orm.entity_manager"
-
-#  app.inventory_read:
-#    class: BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile
-#    arguments:
-#      $projectDir: "%kernel.project_dir%"
-#
-#  app.inventory_import:
-#    class: BajomoDavid\ProductInventoryBundle\Controller\ImportData
-#    arguments:
-#      $entityManager: "@doctrine.orm.entity_manager"
+  app.inventory_import:
+    class: BajomoDavid\ProductInventoryBundle\Controller\ImportData
+    arguments:
+      $entityManager: "@doctrine.orm.entity_manager"

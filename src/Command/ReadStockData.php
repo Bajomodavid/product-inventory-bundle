@@ -32,7 +32,7 @@ class ReadStockData extends Command
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
         $loader->load('services.yaml');
 
-        $processRecords = $container->get('BajomoDavid\ProductInventoryBundle\Controller');
+        $processRecords = $container->get('app.command.inventory_read');
         $records = [];
         try {
             $records = $processRecords->readFile($input->getArgument('path'));
