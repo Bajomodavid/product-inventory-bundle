@@ -16,6 +16,8 @@ class ImportData extends AbstractController
     {
         $this->records = $records;
         $this->entityManager = $entityManager;
+
+        parent::__construct();
     }
 
     public function storeRecords()
