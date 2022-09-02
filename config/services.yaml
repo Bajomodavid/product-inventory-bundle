@@ -8,15 +8,15 @@ services:
     arguments:
     tags: [ 'console.command' ]
 
-  BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile:
+  BajomoDavid\ProductInventoryBundle\Controller\:
     resource: '../src/Controller/ReadCsvFile.php'
     arguments:
       $projectDir: "%kernel.project_dir%"
 
-  BajomoDavid\ProductInventoryBundle\Controller\ImportData:
-    resource: '../src/Controller/ImportData.php'
-    arguments:
-      $entityManager: "@doctrine.orm.entity_manager"
+#  BajomoDavid\ProductInventoryBundle\Controller\ImportData:
+#    resource: '../src/Controller/ImportData.php'
+#    arguments:
+#      $entityManager: "@doctrine.orm.entity_manager"
 
 #  app.inventory_read:
 #    class: BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile
