@@ -21,9 +21,6 @@ class ProductInventoryExtension extends Extension
 
     public function load(array $configs, ContainerBuilder $container)
     {
-        $container
-            ->register('app.inventory_read', ReadCsvFile::class)
-            ->addArgument('%kernel.project_dir%');
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
         $loader->load('services.yaml');
     }
