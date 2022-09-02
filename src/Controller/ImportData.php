@@ -22,8 +22,9 @@ class ImportData extends AbstractController
         }
     }
 
-    public function storeOrUpdateData($sku, $branch, $stock, ManagerRegistry $doctrine)
+    public function storeOrUpdateData($sku, $branch, $stock)
     {
+        $doctrine = new ManagerRegistry();
         $entityManager = $doctrine->getManager();
 
         $stockData = new StockData();
