@@ -4,10 +4,14 @@ parameters:
 
 services:
   app.command.inventory_read:
+    class: BajomoDavid\ProductInventoryBundle\Command\ReadStockData
+    arguments:
+    tags: [ 'console.command' ]
+
+  app.inventory_read:
     class: BajomoDavid\ProductInventoryBundle\Controller\ReadCsvFile
     arguments:
       $projectDir: "%kernel.project_dir%"
-    tags: [ 'console.command' ]
 
   app.inventory_import:
     class: BajomoDavid\ProductInventoryBundle\Controller\ImportData

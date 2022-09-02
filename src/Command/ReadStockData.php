@@ -13,13 +13,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class ReadStockData extends Command
 {
-    private string $projectDir;
-
-    public function __construct(string $projectDir = '')
-    {
-        $this->projectDir = $projectDir;
-        parent::__construct();
-    }
     // In this function set the name, description and help hint for the command
     protected function configure(): void
     {
