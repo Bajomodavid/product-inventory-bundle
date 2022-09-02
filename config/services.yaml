@@ -8,3 +8,9 @@ services:
     arguments:
       $projectDir: "%kernel.project_dir%"
     tags: [ 'console.command' ]
+
+  BajomoDavid\ProductInventoryBundle\Controller\ImportData:
+    resource: '../src/Controller/ImportData.php'
+    arguments:
+      $projectDir: "%kernel.project_dir%"
+    tags: [ 'console.command' ]

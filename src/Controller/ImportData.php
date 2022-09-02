@@ -3,6 +3,7 @@
 namespace BajomoDavid\ProductInventoryBundle\Controller;
 
 use BajomoDavid\ProductInventoryBundle\Entity\StockData;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ImportData extends AbstractController
@@ -21,9 +22,9 @@ class ImportData extends AbstractController
         }
     }
 
-    public function storeOrUpdateData($sku, $branch, $stock)
+    public function storeOrUpdateData($sku, $branch, $stock, ManagerRegistry $doctrine)
     {
-        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager = $doctrine->getManager();
 
         $stockData = new StockData();
         $stockData->setSku($sku);
