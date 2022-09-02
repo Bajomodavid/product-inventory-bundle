@@ -4,24 +4,19 @@ namespace BajomoDavid\ProductInventoryBundle\Controller;
 
 use BajomoDavid\ProductInventoryBundle\Entity\StockData;
 use Doctrine\ORM\EntityManager;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ImportData extends AbstractController
+class ImportData
 {
-    private array $records;
     private $entityManager;
 
     public function __construct(array $records, EntityManager $entityManager)
     {
-        $this->records = $records;
         $this->entityManager = $entityManager;
-
-        parent::__construct();
     }
 
-    public function storeRecords()
+    public function storeRecords($records)
     {
-        foreach ($this->records as $record) {
+        foreach ($records as $record) {
             $this->storeOrUpdateData($record[0], $record[1], $record[2]);
         }
     }

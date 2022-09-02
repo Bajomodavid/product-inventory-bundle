@@ -41,8 +41,8 @@ class ReadStockData extends Command
             $output->writeln($exception);
         }
 
-        $storeInDB = new ImportData($records);
-        $storeInDB->storeRecords();
+        $storeInDB = new ImportData();
+        $storeInDB->storeRecords($records);
         $output->writeln('Stock data imported successfully');
         return 0;
     }
