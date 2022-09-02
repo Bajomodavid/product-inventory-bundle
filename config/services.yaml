@@ -12,4 +12,4 @@ services:
   bajomo_david_product_inventory_bundle.store_stock:
     class: BajomoDavid\ProductInventoryBundle\Controller\ImportData
     arguments:
-      $entityManager: '@doctrine.orm.entity_manager'
+      $entityManager: '@doctrine.orm.default_entity_manager'
